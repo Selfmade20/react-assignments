@@ -96,6 +96,9 @@ class Home extends Component {
                         <Button variant="contained" color="primary" onClick={() => this.toggleDanceUmbrella()}>Show Info</Button>
                     </div>
                 </div>
+                <div className="book-event">
+                <Button variant="contained" color="primary" size="large">Buy Ticket</Button>
+                </div>
             </div>
         )
     }

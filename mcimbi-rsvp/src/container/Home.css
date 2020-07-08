@@ -24,21 +24,23 @@
 .grid-1 {
     flex:2;
     order: 2;
-    margin-left: 10rem;
+    margin-left: 12rem;
 }
 
 .grid-2 {
     flex: 1;
     order: 1;
-    margin-left: 10rem;
+    margin-left: 12rem;
 }
 
 .grid-3 {
     flex: 2;
     order: 3;
-    margin-left: 10rem;
+    margin-left: 12rem;
 }
 
-.Button {
-    align-content: center;
+.book-event{
+    text-align: right;
+    margin-right: 23rem;
+    margin-top: 2rem;
 }
