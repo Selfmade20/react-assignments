@@ -18,14 +18,21 @@ class Bookings extends Component {
 
     addBooking = (event) => {
         event.preventDefault();
-        const { data } = this.state
+        // const { bookings } = this.props;
+        const { firstName, lastName, email } = this.state;
+
+        this.props.addBooking({
+            firstName,
+            lastName,
+            email
+        })
         this.setState({
             firstName: "",
             lastName: "",
             selectEvent: "",
             email: "",
         })
-        console.log("final data is", data)
+        console.log("final data is", this.state)
     }
 
     handleChange = (event) => {

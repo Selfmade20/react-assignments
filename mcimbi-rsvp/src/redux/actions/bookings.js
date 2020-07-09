@@ -4,7 +4,8 @@ import axios from 'axios';
 export function addBooking(booking) {
     return async dispatch => {
         try {
-            const { data } = await axios.post('http://localhost:5000/', booking)
+            const { data } = await axios.post('http://localhost:5000/users/add', booking)
+            console.log("HHHHH", data)
             dispatch({ type: "ADD_BOOKING", payload: data })
         } catch (e) {
             console.log(e);
