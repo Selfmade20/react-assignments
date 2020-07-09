@@ -1,10 +1,12 @@
 const mongoose = require('mongoose');
+const { Dropdown } = require('react-bootstrap');
 
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
     firstName: { type: String, required: true, trim: true },
     lastName: { type: String, required: true, trim: true },
+    selectEvent: { type: String },
     email: { type: String, required: true, trim: true },
     date: { type: Date, default: Date.now }
 });

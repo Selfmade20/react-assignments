@@ -7,21 +7,26 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error:' + err));
 });
 
-router.route('/add').post((req, res) => {
+router.route('/add').post(async (req, res) => {
+
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
+    const selectEvent = req.body.selectEvent;
     const email = req.body.email;
 
     const newUser = new User({
         firstName,
         lastName,
+        selectEvent,
         email,
     });
 
-
-    newUser.save()
-        .then(() => res.json('User Added'))
-        .catch(err => res.status(400).json('Error:' + err));
+    try {
+        await newUser.save()
+        return res.send(newUser);
+    } catch (err) {
+        return res.status(400).json("Error:" + err)
+    }
 
 });
 

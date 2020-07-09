@@ -59,7 +59,7 @@ class Bookings extends Component {
                         </div>
                         <div className="selectEvent">
                             <label htmlFor="selectEvent">Select Event</label>
-                            <select name="selectEvent">
+                            <select name="selectEvent" onChange={this.handleChange}>
                                 <option>FIFA World Cup</option>
                                 <option>Cape Town International Jazz Festival</option>
                                 <option>Dance Umbrella</option>
