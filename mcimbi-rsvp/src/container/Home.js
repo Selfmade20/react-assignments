@@ -55,7 +55,7 @@ class Home extends Component {
             }
         ];
         const capeTownResults = capeTownEvent.map(event => {
-            return event.description  
+            return event.description
         });
 
 
@@ -97,7 +97,9 @@ class Home extends Component {
                     </div>
                 </div>
                 <div className="book-event">
-                <Button variant="contained" color="primary" size="large">Buy Ticket</Button>
+                    <a href="http://localhost:3000/bookings">
+                        <Button variant="contained" color="primary" size="large">Book Event</Button>
+                    </a>
                 </div>
             </div>
         )
