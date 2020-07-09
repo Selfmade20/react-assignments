@@ -17,13 +17,18 @@ class Bookings extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         const data = this.state
+        this.setState({
+            firstName: "",
+            lastName: "",
+            selectEvent: "",
+            email: "",
+        })
         console.log("final data is",data)
     }
 
     handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value,
-            [event.target.name]: event.target.value
         })
     }
 
@@ -37,15 +42,15 @@ class Bookings extends Component {
                     <form onSubmit={this.handleSubmit} noValidate>
                         <div className="firstName">
                             <label htmlFor="firstName">First Name</label>
-                            <input type="text" className="" name="firstName" onChange={this.handleChange} noValidate placeholder="First Name" />
+                            <input type="text" className="" name="firstName" value={this.state.firstName} onChange={this.handleChange} noValidate placeholder="First Name" />
                         </div>
                         <div className="lastName">
                             <label htmlFor="lastName">Last Name</label>
-                            <input type="text" className="" name="lastName" onChange={this.handleChange} noValidate placeholder="Last Name" />
+                            <input type="text" className="" name="lastName" value={this.state.lastName} onChange={this.handleChange} noValidate placeholder="Last Name" />
                         </div>
                         <div className="selectEvent">
                             <label htmlFor="selectEvent">Select Event</label>
-                            <select>
+                            <select name="selectEvent">
                                 <option>FIFA World Cup</option>
                                 <option>Cape Town International Jazz Festival</option>
                                 <option>Dance Umbrella</option>
@@ -54,10 +59,10 @@ class Bookings extends Component {
                         </div>
                         <div className="email">
                             <label htmlFor="email">Email</label>
-                            <input className="" type="email" name="email" onChange={this.handleChange} noValidate placeholder="Email" />
+                            <input className="" type="email" name="email" value={this.state.email} onChange={this.handleChange} noValidate placeholder="Email" />
                         </div>
                         <div className="submit">
-                            <Button variant="contained" color="primary" type="submit" onClick={this.handleChange}>Submit</Button>
+                            <Button variant="contained" color="primary" type="submit" onClick={this.handleSubmit}>Submit</Button>
                         </div>
                     </form>
                 </div>

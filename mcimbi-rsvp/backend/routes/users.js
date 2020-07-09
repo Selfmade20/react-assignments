@@ -9,8 +9,14 @@ router.route('/').get((req, res) => {
 
 router.route('/add').post((req, res) => {
     const firstName = req.body.firstName;
+    const lastName = req.body.lastName;
+    const email = req.body.email;
 
-    const newUser = new User({firstName});
+    const newUser = new User({
+        firstName,
+        lastName,
+        email,
+    });
 
 
     newUser.save()
