@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import './Bookings.css';
+import { connect } from "react-redux";
+import { addBooking } from '../redux/actions/bookings'
 import Button from '@material-ui/core/Button';
 
 
@@ -14,16 +16,16 @@ class Bookings extends Component {
         }
     }
 
-    handleSubmit = (event) => {
+    addBooking = (event) => {
         event.preventDefault();
-        const data = this.state
+        const { data } = this.state
         this.setState({
             firstName: "",
             lastName: "",
             selectEvent: "",
             email: "",
         })
-        console.log("final data is",data)
+        console.log("final data is", data)
     }
 
     handleChange = (event) => {
@@ -39,7 +41,7 @@ class Bookings extends Component {
             <div className="wrapper">
                 <div className="form-wrapper">
                     <h1>Book Event</h1>
-                    <form onSubmit={this.handleSubmit} noValidate>
+                    <form onSubmit={this.addBooking} noValidate>
                         <div className="firstName">
                             <label htmlFor="firstName">First Name</label>
                             <input type="text" className="" name="firstName" value={this.state.firstName} onChange={this.handleChange} noValidate placeholder="First Name" />
@@ -72,4 +74,12 @@ class Bookings extends Component {
     }
 }
 
-export default Bookings
+const mapStateToProps = state => ({
+    bookings: state.bookings.bookings
+});
+
+const mapDispatchToProps = dispatch => ({
+    addBooking: (booking) => dispatch(addBooking(booking)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Bookings);
