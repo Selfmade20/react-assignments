@@ -80,7 +80,7 @@ input.error{
 
 .firstName,
 .lastName,
-.selectEvent,
+.selectedEvent,
 .email {
     display: flex;
     flex-direction: column;
@@ -92,9 +92,10 @@ input.error{
     width: 49%;
 }
 
-.selectEvent,
+.selectedEvent,
 .email{
     width:100%;
+    margin-bottom: 5%;
 }
 
 .submit {
