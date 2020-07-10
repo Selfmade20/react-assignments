@@ -2,7 +2,6 @@ const initialState = {
   bookings: []
 }
 
-
 export default function addBooking(state = initialState, action) {
   switch (action.type) {
     case "ADD_BOOKING": {
