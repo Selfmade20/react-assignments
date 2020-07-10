@@ -18,8 +18,15 @@ class Bookings extends Component {
 
     addBooking = (event) => {
         event.preventDefault();
-        // const { bookings } = this.props;
+        const { bookings } = this.props;
         const { firstName, lastName, selectedEvent, email } = this.state;
+
+        for(var i in bookings){
+            if(bookings[i].email === bookings){
+                alert("Found Existing Email")
+                return
+            }
+        }
 
         this.props.addBooking({
             firstName,
@@ -37,6 +44,7 @@ class Bookings extends Component {
     }
 
     handleChange = (event) => {
+        event.preventDefault();
         this.setState({
             [event.target.name]: event.target.value,
         })
@@ -50,15 +58,16 @@ class Bookings extends Component {
                     <form onSubmit={this.addBooking} noValidate>
                         <div className="firstName">
                             <label htmlFor="firstName">First Name</label>
-                            <input type="text" className="" name="firstName" value={this.state.firstName} onChange={this.handleChange} noValidate placeholder="First Name" />
+                            <input type="text" required name="firstName" value={this.state.firstName} onChange={this.handleChange} noValidate placeholder="First Name" />
                         </div>
                         <div className="lastName">
                             <label htmlFor="lastName">Last Name</label>
-                            <input type="text" className="" name="lastName" value={this.state.lastName} onChange={this.handleChange} noValidate placeholder="Last Name" />
+                            <input type="text" required name="lastName" value={this.state.lastName} onChange={this.handleChange} noValidate placeholder="Last Name" />
                         </div>
                         <div className="selectedEvent">
                             <label htmlFor="selectedEvent">Select Event</label>
-                            <select name="selectedEvent" onChange={this.handleChange}>
+                            <select name="selectedEvent" value={this.state.selectedEvent} onChange={this.handleChange}>
+                                <option value="" disabled selected>Select your event</option>
                                 <option>FIFA World Cup</option>
                                 <option>Cape Town International Jazz Festival</option>
                                 <option>Dance Umbrella</option>
@@ -66,7 +75,7 @@ class Bookings extends Component {
                         </div>
                         <div className="email">
                             <label htmlFor="email">Email</label>
-                            <input className="" type="email" name="email" value={this.state.email} onChange={this.handleChange} noValidate placeholder="Email" />
+                            <input type="email" required name="email" value={this.state.email} onChange={this.handleChange} noValidate placeholder="Email" />
                         </div>
                         <div className="submit">
                             <Button variant="contained" color="primary" type="submit" onClick={this.handleSubmit}>Submit</Button>
