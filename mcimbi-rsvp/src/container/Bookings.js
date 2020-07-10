@@ -11,7 +11,7 @@ class Bookings extends Component {
         this.state = {
             firstName: "",
             lastName: "",
-            selectEvent: "",
+            selectedEvent: "",
             email: "",
         }
     }
@@ -19,17 +19,18 @@ class Bookings extends Component {
     addBooking = (event) => {
         event.preventDefault();
         // const { bookings } = this.props;
-        const { firstName, lastName, email } = this.state;
+        const { firstName, lastName, selectedEvent, email } = this.state;
 
         this.props.addBooking({
             firstName,
             lastName,
+            selectedEvent,
             email
         })
         this.setState({
             firstName: "",
             lastName: "",
-            selectEvent: "",
+            selectedEvent: "",
             email: "",
         })
         console.log("final data is", this.state)
@@ -40,8 +41,6 @@ class Bookings extends Component {
             [event.target.name]: event.target.value,
         })
     }
-
-
 
     render() {
         return (
@@ -57,14 +56,13 @@ class Bookings extends Component {
                             <label htmlFor="lastName">Last Name</label>
                             <input type="text" className="" name="lastName" value={this.state.lastName} onChange={this.handleChange} noValidate placeholder="Last Name" />
                         </div>
-                        <div className="selectEvent">
-                            <label htmlFor="selectEvent">Select Event</label>
-                            <select name="selectEvent" onChange={this.handleChange}>
+                        <div className="selectedEvent">
+                            <label htmlFor="selectedEvent">Select Event</label>
+                            <select name="selectedEvent" onChange={this.handleChange}>
                                 <option>FIFA World Cup</option>
                                 <option>Cape Town International Jazz Festival</option>
                                 <option>Dance Umbrella</option>
                             </select>
-                            {/* <input type="text" className="" type="text" name="selectEvent" onChange={this.handleChange} noValidate placeholder="Select Event" /> */}
                         </div>
                         <div className="email">
                             <label htmlFor="email">Email</label>

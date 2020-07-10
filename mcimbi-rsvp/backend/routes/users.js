@@ -11,13 +11,13 @@ router.route('/add').post(async (req, res) => {
 
     const firstName = req.body.firstName;
     const lastName = req.body.lastName;
-    const selectEvent = req.body.selectEvent;
+    const selectedEvent = req.body.selectEvent;
     const email = req.body.email;
 
     const newUser = new User({
         firstName,
         lastName,
-        selectEvent,
+        selectedEvent,
         email,
     });
 
