@@ -36,33 +36,24 @@ class Home extends Component {
     render() {
         const worldCupEvent = [
             {
-                id: 1,
-                name: "FIFA World Cup",
                 desciption: "The World Cup refers to an international football tournament played between the senior men's national teams from countries that are members of the tournament's governing body, the Fédération Internationale de Football Association(FIFA)",
-                date: "27 July 2022"
             },
         ];
-
         const worldCupResults = worldCupEvent.map(event => {
             return event.desciption
         });
 
         const capeTownEvent = [
             {
-                id: 2,
-                name: "Cape Town International Jazz Festival",
                 description: "Affectionately referred to as “Africa's Grandest Gathering”, the Cape Town International Jazz Festival (CTIJF) is the largest music event in sub-Saharan Africa. The festival is famous for its star-studded line up of local and international artists."
             }
         ];
         const capeTownResults = capeTownEvent.map(event => {
-            return event.description
+            return event.description 
         });
-
 
         const danceUmbrella = [
             {
-                id: 3,
-                name: "",
                 description: "Dance Umbrella is London's international dance festival, celebrating 21st century choreography across the capital. Founded in 1978, Dance Umbrella is internationally recognised for its annual festival which takes place each October."
             }
         ];
