@@ -4,6 +4,16 @@ import { connect } from "react-redux";
 import { addBooking } from '../redux/actions/bookings'
 import Button from '@material-ui/core/Button';
 
+const emailRegex = RegExp(/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/);
+
+const formValid = formErrors => {
+    let valid = true;
+
+    Object.values(formErrors).forEach(val => {
+        val.length > 0 && (valid = false)
+    });
+    return valid;
+};
 
 class Bookings extends Component {
     constructor(props) {
@@ -13,19 +23,28 @@ class Bookings extends Component {
             lastName: "",
             selectedEvent: "",
             email: "",
-        }
+            formErrors: {
+                firstName: '',
+                lastName: '',
+                email: ''
+            }
+        };
     }
 
     addBooking = (event) => {
         event.preventDefault();
-        const { bookings } = this.props;
+        // const { bookings } = this.props;
         const { firstName, lastName, selectedEvent, email } = this.state;
 
-        for(var i in bookings){
-            if(bookings[i].email === bookings){
-                alert("Found Existing Email")
-                return
-            }
+        if (formValid(this.state.formErrors)) {
+            console.log(`
+                ---SUBMITTING---    
+                First Name: ${this.state.firstName},
+                Last Name: ${this.state.lastName},
+                Email: ${this.state.email}
+            `);
+        } else {
+            console.error('FORM-INVALID');
         }
 
         this.props.addBooking({
@@ -45,12 +64,38 @@ class Bookings extends Component {
 
     handleChange = (event) => {
         event.preventDefault();
+        const { name, value } = event.target
+        let formErrors = this.state.formErrors;
+
+        switch (name) {
+            case 'firstName':
+                formErrors.firstName = value.length < 3 && value.lenth > 0
+                    ? 'Minimum 3 characters required'
+                    : "";
+                break;
+            case 'lastName':
+                formErrors.lastName = value.length < 3 && value.lenth > 0
+                    ? 'Minimum 3 characters required'
+                    : "";
+                break;
+            case 'email':
+                formErrors.email = emailRegex.test(value) && value.lenth > 0
+                    ? ''
+                    : "invalid email address";
+                break;
+        }
+
+
         this.setState({
             [event.target.name]: event.target.value,
+            formErrors, [name]: value
         })
     }
 
     render() {
+
+        const { formErrors } = this.state;
+
         return (
             <div className="wrapper">
                 <div className="form-wrapper">
@@ -59,6 +104,9 @@ class Bookings extends Component {
                         <div className="firstName">
                             <label htmlFor="firstName">First Name</label>
                             <input type="text" required name="firstName" value={this.state.firstName} onChange={this.handleChange} noValidate placeholder="First Name" />
+                            {formErrors.firstName.length > 0 && (
+                                <span className="errorMessage">{formErrors.firstName}</span>
+                            )}
                         </div>
                         <div className="lastName">
                             <label htmlFor="lastName">Last Name</label>
