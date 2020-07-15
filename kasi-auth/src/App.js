@@ -2,7 +2,7 @@ import React from 'react';
 import { NavigationBar } from './components/NavigationBar';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './containers/Home';
-import {About} from './components/About';
+import Login from './components/Login';
 import './App.css';
 
 class App extends React.Component {
@@ -14,7 +14,7 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route exact path="/" component={Home} />
-            <Route path="/about" component={About} />
+            <Route path="/logIn" component={Login} />
           </Switch>
         </Router>
       </React.Fragment>
