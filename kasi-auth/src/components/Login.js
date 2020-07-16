@@ -14,7 +14,7 @@ export default class Login extends Component {
     }
 
     logIn = () => {
-        PostData('login', this.state).then((result) => {
+        PostData('users', this.state).then((result) => {
             let responseJSON = result;
             console.log(responseJSON); 
         });

@@ -6,7 +6,7 @@ const Styles = styled.div`
 .navbar{
     background-color: black;
 }
-.navbar-brand, .navbar-nav .nav-link {
+.navbar-brand, .navbar-nav .nav-link    {
     color: white;
     font-size: 22px;
     font-family: Georgia;
