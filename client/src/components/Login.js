@@ -6,16 +6,22 @@ export default class Login extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            email: "",
+            username: "",
             password: "",
 
         }
     }
 
+    logIn = () => {
+        this.setState({
+            username: '',
+            password: ''
+        })
+    }
+
     onChange = (event) => {
         this.setState({ [event.target.name]: event.target.value })
     }
-
 
     render() {
         return (
@@ -23,9 +29,9 @@ export default class Login extends Component {
                 <div className="form-wrapper">
                     <h1>Log In</h1>
                     <form noValidate>
-                        <div className="email">
-                            <label htmlFor="email">Email</label>
-                            <input type="email" required name="email" onChange={this.onChange} noValidate placeholder="Email" />
+                        <div className="username">
+                            <label htmlFor="username">Username</label>
+                            <input type="username" required name="username" onChange={this.onChange} noValidate placeholder="Username" />
                         </div>
                         <div className="password">
                             <label htmlFor="password">Password</label>
@@ -34,6 +40,7 @@ export default class Login extends Component {
                         <div className="submit">
                             <Button variant="contained" color="primary">Log In</Button>
                         </div>
+                          <small>Already have an Account <a href="/" alt="register"></a></small>
                     </form>
                 </div>
             </div>
