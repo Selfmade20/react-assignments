@@ -40,7 +40,7 @@ export default class Login extends Component {
                         <div className="submit">
                             <Button variant="contained" color="primary">Log In</Button>
                         </div>
-                          <small>Already have an Account <a href="/" alt="register"></a></small>
+                          <small>Already have an Account</small>
                     </form>
                 </div>
             </div>

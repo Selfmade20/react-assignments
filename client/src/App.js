@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { NavigationBar } from './components/NavigationBar';
 import Home from './components/Home';
-import registerForm from './components/Register';
+import Register from './components/Register';
 import Login from './components/Login';
 
 class App extends React.Component {
@@ -14,8 +14,8 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/logIn' component={Login} />
-            <Route path='/register' component={registerForm} />
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
           </Switch>
         </Router>
       </React.Fragment>
