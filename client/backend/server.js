@@ -8,6 +8,7 @@ const bcrypt = require('bcryptjs');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const User = require('./user');
+const user = require('./user');
 
 mongoose.connect(
     "mongodb+srv://Selfmade20:Selamolela1@cluster0.jcmpp.mongodb.net/Authentification?retryWrites=true&w=majority",
@@ -36,20 +37,34 @@ app.use(session({
     saveUninitialized: true
 }));
 app.use(cookieParser("secretcode"))
+app.use(passport.initialize());
+app.use(passport.session());
+require('./passportConfig')(passport);
 
 // Routes
-app.post("/login", (req, res) => {
-    console.log(req.body);
-})
+app.post("/login", (req, res, next) => {
+    passport.authenticate("local", (err, user, info) => {
+        if (err) throw err;
+        if (!user) res.send("No User Exists!")
+        else {
+            req.logIn(user, err => {
+                if (err) throw err;
+                res.send("Successfully Authentificated User!")
+                console.log(req.user);
+            });
+        }
+    })(req, res, next);
+});
 
 app.post("/register", (req, res) => {
-    User.findOne({ username: req.body.username }, async(err, doc) => {
+    User.findOne({ username: req.body.username }, async (err, doc) => {
         if (err) throw err;
         if (doc) res.send("User already Registered");
         if (!doc) {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
             const newUser = new User({
                 username: req.body.username,
-                password: req.body.password
+                password: hashedPassword,
             });
             await newUser.save();
             res.send("User created");
