@@ -31,12 +31,14 @@ function Register() {
             <input type="username" required name="username" onChange={(e) => setRegisterUsername(e.target.value)} noValidate placeholder="Username" />
           </div>
           <div className="password">
-            <label htmlFor="password">Password</label>  
+            <label htmlFor="password">Password</label>
             <input type="password" required name="password" onChange={(e) => setRegisterPassword(e.target.value)} noValidate placeholder="Password" />
           </div>
           <div className="submit">
             <Button variant="contained" color="primary" onClick={register}>Register</Button>
-            <small>Already have an Account</small>
+            <small>Already have an Account?
+            <a href="http://localhost:3000/login" alt="register"> login</a>
+            </small>
           </div>
         </form>
       </div>

@@ -34,6 +34,9 @@ function Login() {
                     </div>
                     <div className="submit">
                         <Button variant="contained" color="primary" onClick={login}>Login</Button>
+                        <small>Don't have an account yet?
+                        <a href="http://localhost:3000/register" alt="register"> register</a>
+                        </small>
                     </div>
                 </form>
             </div>
