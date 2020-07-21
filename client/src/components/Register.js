@@ -9,7 +9,7 @@ function Register() {
   // const [loginUsername, setLoginUsername] = useState("");
   // const [loginPassword, setLoginPassword] = useState("");
 
-  const regiseter = () => {
+  const register = () => {
     Axios({
       method: "POST",
       data: {
@@ -18,7 +18,7 @@ function Register() {
       },
       withCredentials: true,
       url: "http://localhost:4000/register"
-    })
+    }).then((res) => console.log(res));
   }
 
   return (
@@ -35,7 +35,7 @@ function Register() {
             <input type="password" required name="password" onChange={(e) => setRegisterPassword(e.target.value)} noValidate placeholder="Password" />
           </div>
           <div className="submit">
-            <Button variant="contained" color="primary">Register</Button>
+            <Button variant="contained" color="primary" onClick={register}>Register</Button>
             <small>Already have an Account</small>
           </div>
         </form>
