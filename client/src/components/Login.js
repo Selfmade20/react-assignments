@@ -6,7 +6,6 @@ import Axios from 'axios';
 function Login() {
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
-
     const login = () => {
         Axios({
             method: "POST",
@@ -33,7 +32,7 @@ function Login() {
                         <input type="password" required name="password" onChange={(e) => setLoginPassword(e.target.value)} noValidate placeholder="Password" />
                     </div>
                     <div className="submit">
-                        <Button variant="contained" color="primary" onClick={login, }>Login</Button>
+                        <Button variant="contained" color="primary" onClick={login  }>Login</Button>
                         <small>Don't have an account yet?
                         <a href="http://localhost:3000/register" alt="register"> register</a>
                         </small>
