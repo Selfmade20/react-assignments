@@ -1,16 +1,18 @@
 import React from 'react';
 import { Layout, Avatar, Menu, SubMenu } from 'antd';
 import "./Profile.css"
+import { Button } from '@material-ui/core';
+import Authenticate from './Authenticate';
 
 const { Header } = Layout;
 
 const handleClick = (e) => {
     console.log('click ', e);
-  };
+};
 
-function Profile() {
+function Profile(props) {
     return (
-        <div>
+        <div className="container">
             <Layout>
                 <Header style={{ padding: "10px", height: "auto" }}>
                     <Avatar src="https://i.pinimg.com/736x/b7/9d/ef/b79defbf3ffcbb6e7bb1cfb2042122fb.jpg"
@@ -18,7 +20,7 @@ function Profile() {
                         style={{ float: 'right' }}
                     />
                     <Menu onClick={handleClick}>
-                        <Menu.Item key="Profile"> 
+                        <Menu.Item key="Profile">
                             Profile
                         </Menu.Item>
                         <Menu.ItemGroup title="About us">
@@ -27,17 +29,14 @@ function Profile() {
                             <Menu.Item key="Durban">Durban</Menu.Item>
                         </Menu.ItemGroup>
                     </Menu>
-                    {/* <SubMenu>
-                    </SubMenu> */}
+
                 </Header>
-                {/* <Layout>
-                    <Sider style={{ background: 'black' }}>Sider</Sider>
-                    <Layout>
-                        <Content>Content</Content>
-                        <Footer>Footer</Footer>
-                    </Layout>
-                </Layout> */}
             </Layout>
+            <Button onClick={() => {
+                Authenticate.logout(() => {
+                    props.history.push('/');
+                })
+            }}>Logout</Button>
         </div>
     )
 }

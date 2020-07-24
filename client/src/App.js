@@ -4,7 +4,8 @@ import { NavigationBar } from './components/NavigationBar';
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
-import Profile from './components/Profile'
+import Profile from './components/Profile';
+import { ProtectedRoute } from './components/Protected.route';
 
 class App extends React.Component {
 
@@ -15,9 +16,10 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route path='/login' component={Login} />
-            <Route path='/register' component={Register} />
-            <Route path='/profile' component={Profile} />
+            <ProtectedRoute path='/login' component={Login} />
+            <ProtectedRoute path='/register' component={Register} />
+            <ProtectedRoute path='/profile' component={Profile} />
+            <Route path="*" component={() => "<h1>404 NOT FOUND</h1>"} /> 
           </Switch>
         </Router>
       </React.Fragment>

@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import './Login.css';
 import Button from '@material-ui/core/Button';
 import Axios from 'axios';
+import Authenticate from './Authenticate'
 
 function Login() {
     const [loginUsername, setLoginUsername] = useState("");
     const [loginPassword, setLoginPassword] = useState("");
-    const login = () => {
+
+    const login = (props) => {
         Axios({
             method: "POST",
             data: {
@@ -16,6 +18,10 @@ function Login() {
             withCredentials: true,
             url: "http://localhost:4000/login"
         }).then((res) => console.log(res));
+
+        Authenticate.login(() => {
+            props.history.push('/profile')
+        });
     }
 
     return (
@@ -32,7 +38,7 @@ function Login() {
                         <input type="password" required name="password" onChange={(e) => setLoginPassword(e.target.value)} noValidate placeholder="Password" />
                     </div>
                     <div className="submit">
-                        <Button variant="contained" color="primary" onClick={login  }>Login</Button>
+                        <Button variant="contained" color="primary" onClick={login}>Login</Button>
                         <small>Don't have an account yet?
                         <a href="http://localhost:3000/register" alt="register"> register</a>
                         </small>
