@@ -9,6 +9,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const User = require('./user');
 const user = require('./user');
+const isAuth = require('./authMiddleware').isAuth;
 
 mongoose.connect(
     "mongodb+srv://Selfmade20:Selamolela1@cluster0.jcmpp.mongodb.net/Authentification?retryWrites=true&w=majority",
@@ -75,6 +76,17 @@ app.post("/register", (req, res) => {
 app.get("/user", (req, res) => {
     console.log(req.body);
 })
+
+app.get("/profile", isAuth, (req, res, next) => {
+    res.send("You made it to the profile route which is protected")
+})
+
+
+app.delete("/logout", (req, res, next) => {
+    req.logOut();
+    res.redirect('/login');
+})
+
 
 
 app.listen(4000, () => {
