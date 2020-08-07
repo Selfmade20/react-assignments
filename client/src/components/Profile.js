@@ -32,13 +32,13 @@ function Profile(props) {
 
                 </Header>
             </Layout>
-            <Button onClick={() => {
+            <Button variant="contained" color="primary" onClick={() => {
                 Authenticate.logout(() => {
                     props.history.push('/');
                 })
             }}>Logout</Button>
         </div>
-    )
+    );
 }
 
 export default Profile;

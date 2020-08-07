@@ -6,6 +6,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import Profile from './components/Profile';
 import { ProtectedRoute } from './components/Protected.route';
+import history from './history/index'
 
 class App extends React.Component {
 
@@ -13,13 +14,13 @@ class App extends React.Component {
     return (
       <React.Fragment>
         <NavigationBar />
-        <Router>
+        <Router history={history}>
           <Switch>
             <Route exact path='/' component={Home} />
-            <ProtectedRoute path='/login' component={Login} />
-            <ProtectedRoute path='/register' component={Register} />
-            <ProtectedRoute path='/profile' component={Profile} />
-            <Route path="*" component={() => "<h1>404 NOT FOUND</h1>"} /> 
+            <Route path='/login' component={Login} />
+            <Route path='/register' component={Register} />
+            <Route path='/profile' component={Profile} />
+            <Route path="*" component={() => "404 NOT FOUND"} />
           </Switch>
         </Router>
       </React.Fragment>

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import './Login.css';
 import Button from '@material-ui/core/Button';
 import Axios from 'axios';
-import Authenticate from './Authenticate'
+import Authenticate from './Authenticate';
+import history from '../history/index';
 
 function Login() {
     const [loginUsername, setLoginUsername] = useState("");
@@ -20,8 +21,9 @@ function Login() {
         }).then((res) => console.log(res));
 
         Authenticate.login(() => {
-            props.history.push('/profile')
+            history.push('/profile');
         });
+        // window.location.reload();
     }
 
     return (

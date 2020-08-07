@@ -46,11 +46,12 @@ require('./passportConfig')(passport);
 app.post("/login", (req, res, next) => {
     passport.authenticate("local", (err, user, info) => {
         if (err) throw err;
-        if (!user) res.send("No User Exists!")
+        if (!user) res.send("User Does Not Exists!")
         else {
             req.logIn(user, err => {
                 if (err) throw err;
-                res.send("Successfully Authentificated User!")
+                // res.send("Successfully Authentificated User!")
+                res.redirect('/profile')
                 console.log(req.user);
             });
         }
