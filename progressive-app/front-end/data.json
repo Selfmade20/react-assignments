@@ -1,0 +1,41 @@
+[
+    {
+        "id": 1,
+        "company": "Photosnap",
+        "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhatchful.shopify.com%2F&psig=AOvVaw3uNYIqknUq8Ce0dX3Y5IC8&ust=1604140426156000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKCph_aO3OwCFQAAAAAdAAAAABAD",
+        "new": true,
+        "featured": true,
+        "position": "Senior Frontend Developer",
+        "role": "Frontend",
+        "level": "Senior",
+        "postedAt": "1d ago",
+        "contract": "Full Time",
+        "location": "SA only",
+        "languages": [
+            "HTML",
+            "CSS",
+            "Javascript"
+        ]
+    },
+    {
+        "id": 2,
+        "company": "The Coding Ground",
+        "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhatchful.shopify.com%2F&psig=AOvVaw3uNYIqknUq8Ce0dX3Y5IC8&ust=1604140426156000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKCph_aO3OwCFQAAAAAdAAAAABAD",
+        "new": true,
+        "featured": true,
+        "position": "Full Stack Developer",
+        "role": "Full Stack",
+        "level": "Midweight",
+        "postedAt": "1d ago",
+        "contract": "Part Time",
+        "location": "Remote",
+        "languages": [
+            "HTML",
+            "CSS",
+            "Javascript"
+        ],
+        "tools": [
+            "React"
+        ]
+    }
+]
