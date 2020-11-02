@@ -2,7 +2,7 @@
     {
         "id": 1,
         "company": "Photosnap",
-        "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhatchful.shopify.com%2F&psig=AOvVaw3uNYIqknUq8Ce0dX3Y5IC8&ust=1604140426156000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKCph_aO3OwCFQAAAAAdAAAAABAD",
+        "logo": "../public/images/spotify.svg",
         "new": true,
         "featured": true,
         "position": "Senior Frontend Developer",
@@ -20,7 +20,7 @@
     {
         "id": 2,
         "company": "The Coding Ground",
-        "logo": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fhatchful.shopify.com%2F&psig=AOvVaw3uNYIqknUq8Ce0dX3Y5IC8&ust=1604140426156000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCKCph_aO3OwCFQAAAAAdAAAAABAD",
+        "logo": "../public/images/dropbox.svg",
         "new": true,
         "featured": true,
         "position": "Full Stack Developer",
@@ -36,6 +36,45 @@
         ],
         "tools": [
             "React"
+        ]
+    },
+    {
+        "id": 3,
+        "company": "Bugatti",
+        "logo": "../public/images/dropbox.svg",
+        "new": true,
+        "featured": true,
+        "position": "Website Developer",
+        "role": "Frontend Developer",
+        "level": "Midweight",
+        "postedAt": "3w ago",
+        "contract": "Part Time",
+        "location": "Remote",
+        "languages": [
+            "HTML",
+            "CSS",
+            "Javascript"
+        ]
+    },
+    {
+        "id": 4,
+        "company": "Incubation Drive Co.",
+        "logo": "../public/images/dropbox.svg",
+        "new": true,
+        "featured": true,
+        "position": "Computer Systems Engineer",
+        "role": "Full Stack",
+        "level": "Junior",
+        "postedAt": "6d ago",
+        "contract": "Full time",
+        "location": "Remote",
+        "languages": [
+            "Python",
+            "Java",
+            "C++"
+        ],
+        "tools": [
+            "Angular"
         ]
     }
 ]
