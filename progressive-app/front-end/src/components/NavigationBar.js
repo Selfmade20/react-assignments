@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   toolbar: {
-    minHeight: 50,
+    minHeight: 100,
     alignItems: "flex-start",
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
@@ -43,7 +43,7 @@ function ProminentAppBar() {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h5" noWrap>
-            Material-UI
+            🧢TakeABunch Co.
           </Typography>
           <IconButton aria-label="search" color="inherit">
             <SearchIcon />
