@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   toolbar: {
-    minHeight: 100,
+    minHeight: 80,
     alignItems: "flex-start",
     paddingTop: theme.spacing(1),
     paddingBottom: theme.spacing(2),
@@ -34,26 +34,26 @@ function ProminentAppBar() {
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar className={classes.toolbar}>
-          <IconButton
+          {/* <IconButton
             edge="start"
             className={classes.menuButton}
             color="inherit"
-            aria-label="open drawer"
+            aria-label="open drawer" 
           >
             <MenuIcon />
-          </IconButton>
+          </IconButton> */}
           <Typography className={classes.title} variant="h5" noWrap>
-            🧢TakeABunch Co.
+            🧢TakeABunch💼 Co.
           </Typography>
           <IconButton aria-label="search" color="inherit">
-            <SearchIcon />
+          
           </IconButton>
           <IconButton
             aria-label="display more actions"
             edge="end"
             color="inherit"
           >
-            <MoreIcon />
+       
           </IconButton>
         </Toolbar>
       </AppBar>
