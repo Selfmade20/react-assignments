@@ -16,4 +16,15 @@ app.use(function(req, res, next){
 })
 
 
+app.get('/', (req, res) => {
+    merchant_model.getUsers()
+    .then(response => {
+        res.status(200).send(response)
+    })
+    .catch(error => {
+        res.status(500).send(error);
+    })
+})
+
+
 app.listen(port, console.log(`Server successfully running on port: ${port}`));
