@@ -13,8 +13,8 @@ function App() {
 
   return (
     <div className="app">
-      <NavigationBar />
-      <h1 className="text-4xl text-center font-sans uppercase text-gray-700">Active Jobs</h1>
+      {/* <NavigationBar /> */}
+      {/* <h1 className="text-4xl text-center font-sans uppercase text-gray-700">Active Jobs</h1> */}
       {jobs.length === 0 ? (
         <p>Fetching jobs...</p>
       ) : (
